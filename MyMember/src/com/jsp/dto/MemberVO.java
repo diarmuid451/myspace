@@ -107,7 +107,9 @@ public class MemberVO {
 	public void setEnabled(int enabled) {
 		this.enabled = enabled;
 	}
+
 	
+
 	public String getName() {
 		return name;
 	}
