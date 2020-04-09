@@ -120,20 +120,3 @@
 
 
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
-
-<script>
-// 팝업창 띄우기
-// 새로운 window창을 열 경우 사용되는 함수(arg : 주소, 창제목, 넓이, 길이) 
-function OpenWindow(UrlStr, WinTitle, WinWidth, WinHeight) {
-	winleft = (screen.width - WinWidth) /2;
-	wintop = (screen.height - WinHeight) /2;
-	var win = window.open(UrlStr, WinTitle, "scrollbars=yes,width="+ WinWidth+", "
-				+"height="+WinHeight+", top="+wintop+", left="+winleft+", resizable=yes, status=yes");
-	win.focus();
-}
-
-function CloseWindow() {
-	window.opener.location.reload(true);
-	window.close();
-}
-</script>

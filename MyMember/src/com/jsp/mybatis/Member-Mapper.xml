@@ -20,8 +20,8 @@
 	
 	<insert id="insertMember" parameterType="member">
 		insert into member
-		(id, pwd, email, phone, picture)
-		values (#{id}, #{pwd}, #{email}, #{phone}, #{picture})
+		(id, pwd, name, picture, authority, phone, email)
+		values (#{id}, #{pwd}, #{name},#{picture}, #{authority}, #{phone}, #{email})
 	</insert>
 	
 	<update id="updateMember" parameterType="member">
