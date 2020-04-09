@@ -160,9 +160,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="<%=request.getContextPath()%>/resources/bootstrap/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="<%=request.getContextPath()%>/resources/images/header-logo.jpg" alt="ddit-logo" 
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+     
     </a>
 
     <!-- Sidebar -->
@@ -176,7 +176,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="info">
           <div class="row">
           	<a class="col-md-8" href="">${loginUser.id }</a>
-          	<button class="btn btn-xs btn-primary col-xs-3 " type="button" 
+          	<button class="btn btn-xs btn-danger col-xs-3 " type="button" 
           		onclick="location.href='<%=request.getContextPath() %>/commons/logout';" >Logout</button>
           </div>
           <a href="tel:${loginUser.phone }">tel : ${loginUser.phone }</a><br/>

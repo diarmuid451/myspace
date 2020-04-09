@@ -2,8 +2,7 @@
     <wb-module deploy-name="MyMember">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/rec"/>
-        <property name="context-root" value="MyMember"/>
         <property name="java-output-path" value="/MyMember/build/classes"/>
+        <property name="context-root" value="/"/>
     </wb-module>
 </project-modules>

@@ -34,7 +34,7 @@
     	  <div class="card">    
     	  	<div class="card-header with-border">
     	  		<c:if test="${loginUser.authority eq 'ROLE_ADMIN' }" >
-    	  			<button type="button" class="btn btn-primary" 
+    	  			<button type="button" class="btn btn-block bg-gradient-secondary" style="width:170px" 
     	  			onclick="OpenWindow('regist','회원등록',800,600);" >회원등록</button>
     	  		</c:if>
     	  		<div id="keyword" class="card-tools" style="width:350px;">

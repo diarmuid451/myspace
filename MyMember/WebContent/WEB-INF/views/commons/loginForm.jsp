@@ -33,12 +33,12 @@ body.login-page{
 <body class="hold-transition login-page">
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="#"><b>관리자 로그인</b></a>
+			<a href="#"><b>로그인 페이지</b></a>
 		</div>
 		<!-- /.login-logo -->
 		<div class="card">
 		 <div class="card-body login-card-body">
-			<p class="login-box-msg">Sign in to start your session</p>
+			<p class="login-box-msg">아이디와 비밀번호를 입력해주세요.</p>
 
 			<form action="<%=request.getContextPath() %>/commons/login"	method="post">
 				<div class="form-group has-feedback">
@@ -52,13 +52,13 @@ body.login-page{
 				<div class="row">
 					<div class="col-sm-8">
 						<div class="checkbox icheck">
-							<label> <input type="checkbox"> Remember Me
+							<label> <input type="checkbox"> 아이디 저장
 							</label>
 						</div>
 					</div>
 					<!-- /.col -->
 					<div class="col-sm-4">
-						<button type="submit" class="btn btn-primary btn-block btn-flat">로그인</button>
+						<button type="submit" class="btn btn-block btn-outline-primary">로그인</button>
 					</div>
 					<!-- /.col -->
 				</div>
