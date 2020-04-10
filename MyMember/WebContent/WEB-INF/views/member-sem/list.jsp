@@ -4,6 +4,7 @@
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 						
 	<div class="content-wrapper">
@@ -34,7 +35,7 @@
     	  <div class="card">    
     	  	<div class="card-header with-border">
     	  		<c:if test="${loginUser.authority eq 'ROLE_ADMIN' }" >
-    	  			<button type="button" class="btn btn-block bg-gradient-secondary" style="width:170px" 
+    	  			<button type="button" class="btn btn-primary" 
     	  			onclick="OpenWindow('regist','회원등록',800,600);" >회원등록</button>
     	  		</c:if>
     	  		<div id="keyword" class="card-tools" style="width:350px;">
@@ -68,28 +69,26 @@
 	             			<th>패스워드</th>
 	             			<th>이메일</th>
 	             			<th>전화번호</th>
-	             		</tr>
+	             		</tr>            		
 	             		
-	             		<%
-	             		List<MemberVO> memberList = (List<MemberVO>)request.getAttribute("memberList");
-	             		
-	             		 %> 	             	
 	             		<c:if test="${!empty memberList }">
-	             			<c:forEach var="member" items="${memberList }">	             	             	
-	    		        	<tr>
-	             				<td>${member.id }</td>
-	             				<td>${member.name }</td>
-	             				<td>${member.pwd }</td>
-	             				<td>${member.email }</td>
-	             				<td>${member.phone }</td>
-	            			 </tr>
-	            			</c:forEach>
-	            		</c:if> 	
-						<c:if test="${empty memberList }">
-	    		      	  <tr>
-	             			<td colspan = "5">해당 사항 없음</td>
-	            		 </tr>
-	            		 </c:if>
+	             			<c:forEach var="member" items="${memberList }">	             			
+	             		         <tr>
+	             					<td><a href="javascript:OpenWindow('detail?id=${member.id }','회원상세보기','600','500');" >${member.id }</a></td>
+	             					<td>${member.name }</td>
+	             					<td>${member.pwd }</td>
+	             					<td>${member.email }</td>
+	             					<td>${member.phone }</td>	             					
+	             				</tr>
+	             			</c:forEach>
+	             		</c:if>
+	             		
+	             		<c:if test="${empty memberList }">
+	             			<tr>
+	             				<td colspan="5" >해당 사항이 없습니다.</td>
+	             			</tr>
+	             		</c:if>
+	             		
 				 	</table>	
             	</div>
            	</div>            
@@ -98,7 +97,7 @@
 		  </div> <!-- card-footer -->
         </div> <!-- card  -->
       </section>	
-    </div>
-
+    </div>				
+				
 
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
