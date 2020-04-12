@@ -117,13 +117,26 @@
 	});
 	
 	
-	$("#modifyBtn").on("click", function(e){
-		alert("modify is clicked!");
+	$('#modifyBtn').on('click',function(e){		
+		location.href="modify?id=${member.id}";		
 	});
-	$("#stopBtn").on("click", function(e){
-		alert("stop is clicked!");
+	$('#stopBtn').on('click',function(e){	
+		location.href="stop?id=${member.id}";
 	});
-	$("#deleteBtn").on("click", function(e){
-		alert("delete is clicked!");
+	$('#deleteBtn').on('click',function(e){
+		var pwd = prompt("암호를 입력하세요");
+		
+		$.ajax({
+			url:"checkPassword?pwd="+pwd,
+			type:"get",
+			success:function(data){
+				if(data=="SUCCESS"){
+					location.href="remove?id=${member.id}";
+				}else{
+					alert("패스워드가 일치하지 않습니다.");
+				}
+			}
+		});
+		
 	});
 </script>

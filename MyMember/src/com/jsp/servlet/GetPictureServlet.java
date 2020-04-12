@@ -17,7 +17,7 @@ import com.jsp.utils.GetUploadPath;
  * Servlet implementation class getPicture
  */
 @WebServlet("/member/picture/get")
-public class getPicture extends HttpServlet {
+public class GetPictureServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String fileName = request.getParameter("picture");

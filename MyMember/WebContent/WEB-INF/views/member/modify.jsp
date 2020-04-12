@@ -88,7 +88,7 @@
 			          	onclick="SubmitMemberModify('form')">수정하기</button>
 			          	<div class="col-sm-4"></div>	
 			          	<button type="button" id="cancelBtn" class="btn btn-default pull-right col-sm-4 text-center"
-			          	onclick="Rollback()">취소</button>
+			          	onclick="CancelModify()">취소</button>
 		          	</div>  	
 	              </div> 		          	     
 	      	  </form>
@@ -131,6 +131,9 @@ function SubmitMemberModify(formRole){
 	form.submit();
 }
 		
+function CancelModify(){
+	history.go(-1);
+}		
 </script>
 
 

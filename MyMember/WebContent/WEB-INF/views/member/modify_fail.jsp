@@ -2,8 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 
-
-<script type="text/javascript">
-	alert("회원수정에 실패했습니다..");
-	history.go(-1);
+<script>
+	alert("회원수정에 실패했습니다.");
 </script>

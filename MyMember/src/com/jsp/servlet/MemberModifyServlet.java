@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.jsp.dto.MemberVO;
 import com.jsp.request.MemberModifyRequest;
@@ -23,10 +24,10 @@ public class MemberModifyServlet extends HttpServlet {
 		
 		String id = request.getParameter("id");
 		
-		MemberVO memberDetail = null;
+		MemberVO member = null;
 		try {
-			memberDetail = MemberServiceImpl.getInstance().getMember(id);
-			
+			member = MemberServiceImpl.getInstance().getMember(id);
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			url = "error/500_error";
@@ -36,13 +37,14 @@ public class MemberModifyServlet extends HttpServlet {
 		
 		
 		//결과에 따른 화면분할
-		request.setAttribute("member", memberDetail);
+		request.setAttribute("member", member);
 		// 화면요청
 		ViewResolver.view(request, response, url);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "redirect:/member/detail";
+		
+		String url = "member/modify_success";
 		
 		String id = request.getParameter("id");
 		System.out.println(id);
@@ -61,11 +63,14 @@ public class MemberModifyServlet extends HttpServlet {
 		
 		try {
 			MemberServiceImpl.getInstance().modify(member);
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			url = "member/modify_fail";
 		}
+		
+		request.setAttribute("id",id);
 		
 		ViewResolver.view(request, response, url);
 	}

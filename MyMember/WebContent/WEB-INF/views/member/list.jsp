@@ -77,7 +77,7 @@
 	             		<c:if test="${!empty memberList }">
 	             			<c:forEach var="member" items="${memberList }">	             	             	
 	    		        	<tr>
-	             				<td>${member.id }</td>
+	             				<td><a href="javascript:OpenWindow('detail?id=${member.id }','회원상세보기','600','500');" >${member.id }</a></td>
 	             				<td>${member.name }</td>
 	             				<td>${member.pwd }</td>
 	             				<td>${member.email }</td>

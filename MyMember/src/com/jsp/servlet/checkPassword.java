@@ -14,7 +14,7 @@ import com.jsp.dto.MemberVO;
  * Servlet implementation class checkPassword
  */
 @WebServlet("/member/checkPassword")
-public class checkPassword extends HttpServlet {
+public class CheckPassword extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String result = null;
