@@ -41,7 +41,7 @@
 								<div class="" id="pictureView" style="border: 1px solid green; height: 200px; width: 140px; margin: 0 auto; margin-bottom:5px;"></div>														
 								<div class="input-group input-group-sm">
 									<label for="inputFile" class=" btn btn-warning btn-sm btn-flat input-group-addon">파일선택</label>
-									<input id="inputFileName" class="form-control" type="text" name="picture" />
+									<input id="inputFileName" class="form-control" type="text" />
 									<span class="input-group-append-sm">											
 										<button type="button" class="btn btn-info btn-sm btn-append" onclick="upload_go();">업로드</button>											
 									</span>
@@ -88,7 +88,7 @@
 			          	onclick="SubmitMemberModify('form')">수정하기</button>
 			          	<div class="col-sm-4"></div>	
 			          	<button type="button" id="cancelBtn" class="btn btn-default pull-right col-sm-4 text-center"
-			          	onclick="CancelModify()">취소</button>
+			          	onclick="Rollback()">취소</button>
 		          	</div>  	
 	              </div> 		          	     
 	      	  </form>
@@ -130,8 +130,7 @@ function SubmitMemberModify(formRole){
 	var form = $('form[role="'+formRole+'"]');
 	form.submit();
 }
-		
-function CancelModify(){
+function Rollback() {
 	history.go(-1);
 }		
 </script>

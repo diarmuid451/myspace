@@ -3,8 +3,7 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 
 <script>
-	alert("${id} 회원 수정에 성공했습니다.");
-	location.href="detail?id=${id}";
-	window.opener.location.href.reload(true);
+	alert("로그인 유저입니다. \n다른 아이디로 로그인해 주시기 바랍니다.");
+	histroy.go(-1);
 </script>
 

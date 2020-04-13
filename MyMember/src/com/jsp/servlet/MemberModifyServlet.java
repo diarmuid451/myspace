@@ -1,5 +1,6 @@
 package com.jsp.servlet;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import com.jsp.dto.MemberVO;
 import com.jsp.request.MemberModifyRequest;
 import com.jsp.service.MemberServiceImpl;
+import com.jsp.utils.GetUploadPath;
 import com.jsp.utils.ViewResolver;
 
 
@@ -24,10 +26,10 @@ public class MemberModifyServlet extends HttpServlet {
 		
 		String id = request.getParameter("id");
 		
-		MemberVO member = null;
+		MemberVO memberDetail = null;
 		try {
-			member = MemberServiceImpl.getInstance().getMember(id);
-
+			memberDetail = MemberServiceImpl.getInstance().getMember(id);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			url = "error/500_error";
@@ -37,13 +39,12 @@ public class MemberModifyServlet extends HttpServlet {
 		
 		
 		//결과에 따른 화면분할
-		request.setAttribute("member", member);
+		request.setAttribute("member", memberDetail);
 		// 화면요청
 		ViewResolver.view(request, response, url);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		String url = "member/modify_success";
 		
 		String id = request.getParameter("id");
@@ -63,14 +64,24 @@ public class MemberModifyServlet extends HttpServlet {
 		
 		try {
 			MemberServiceImpl.getInstance().modify(member);
-			
+			HttpSession session = request.getSession();
+			MemberVO loginUser=(MemberVO)session.getAttribute("loginUser");
+			if(member.getId().equals(loginUser.getId())) {
+				session.setAttribute("loginUser", member);
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			url = "member/modify_fail";
+			String oldFileName = member.getPicture();
+			String uploadPath=GetUploadPath.getUploadPath("member.picture.upload");
+			File oldFile=new File(uploadPath+File.separator+oldFileName);
+			if(oldFile.exists()) {
+				oldFile.delete();
+			}
 		}
 		
-		request.setAttribute("id",id);
+		request.setAttribute("id", id);
 		
 		ViewResolver.view(request, response, url);
 	}

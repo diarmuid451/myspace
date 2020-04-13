@@ -22,4 +22,8 @@ public interface MemberService {
 		void modify(MemberVO member) throws SQLException;
 		//회원삭제
 		void remove(String id) throws SQLException;
+		//회원 활성화
+		void enable(String id) throws SQLException;
+		//회원 비활성화
+		void disable(String id) throws SQLException;
 }

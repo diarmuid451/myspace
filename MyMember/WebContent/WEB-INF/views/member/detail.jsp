@@ -77,14 +77,21 @@
 			          		<div class="col-sm-3 text-center">
 			          			<button type="button" id="modifyBtn" class="btn btn-warning">수 정</button>
 			          		</div>
+			          		<c:if test="${member.enabled eq 1 }">
+			          		<div class="col-sm-3 text-center">
+			          			<button type="button" id="disabledBtn" class="btn btn-info" >정 지</button>
+			          		</div>
+			          		</c:if>
+			          		<c:if test="${member.enabled eq 0 }">
+			          		<div class="col-sm-3 text-center">
+			          			<button type="button" id="enabledBtn" class="btn btn-info" >활 성</button>
+			          		</div>
+			          		</c:if>
 			          		<div class="col-sm-3text-center">
 				          		<button type="button" id="deleteBtn" class="btn btn-danger" >삭 제</button>
 			          		</div>
 			          		<div class="col-sm-3 text-center">
-			          			<button type="button" id="stopBtn" class="btn btn-info" >정 지</button>
-			          		</div>
-			          		<div class="col-sm-3 text-center">
-			            		<button type="button" id="listBtn" onclick="CloseWindow();" class="btn btn-primary pull-right">닫 기</button>
+			            		<button type="button" id="listBtn" onclick="CloseWindow();" class="btn btn-primary">닫 기</button>
 			            	</div>
 		          	    </div>  
 	            </div>    		          	     
@@ -104,10 +111,6 @@
 <%@ include file="/WEB-INF/views/include/open_footer.jsp" %>
 
 <script type="text/javascript">
-		//정보 읽기 전용 활성화
-	$("input").attr("readonly", true);
-//--------------------------------------------
-
 	var imageURL = "picture/get?picture=${member.picture}";
 	$("div#pictureView").css({
 		'background-image':"url("+imageURL+")",
@@ -117,26 +120,29 @@
 	});
 	
 	
-	$('#modifyBtn').on('click',function(e){		
-		location.href="modify?id=${member.id}";		
+	$("#modifyBtn").on("click", function(e){
+		location.href="modify?id=${member.id}";
 	});
-	$('#stopBtn').on('click',function(e){	
-		location.href="stop?id=${member.id}";
+	
+	$("#disabledBtn").on("click", function(e){
+		location.href="disabled?id=${member.id}";
 	});
-	$('#deleteBtn').on('click',function(e){
+	$("#enabledBtn").on("click", function(e){
+		location.href="enabled?id=${member.id}";
+	});
+	$("#deleteBtn").on("click", function(e){
 		var pwd = prompt("암호를 입력하세요");
 		
 		$.ajax({
 			url:"checkPassword?pwd="+pwd,
 			type:"get",
-			success:function(data){
-				if(data=="SUCCESS"){
+			success : function(data) {
+				if(data =="SUCCESS") {
 					location.href="remove?id=${member.id}";
-				}else{
-					alert("패스워드가 일치하지 않습니다.");
+				} else {
+					alert("비밀번호가 다릅니다.");
 				}
 			}
 		});
-		
 	});
 </script>

@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 
-
 <script type="text/javascript">
-	alert("예상하지 못한 에러가 발생하여 회원 수정에 실패했습니다. \n 관리자에게 문의하세요");
-	history.go(-1);
+	alert("로그인이 필요한 항목입니다. \n로그인 화면으로 이동합니다.");
+	location.href="/commons/login";
 </script>
