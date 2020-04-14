@@ -3,9 +3,10 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ include file="/WEB-INF/views/include/open_header.jsp" %>
-
-
+<head>
+	<title>회원 수정</title>
+</head>
+<body>
   <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 	  <section class="content-header">
@@ -125,16 +126,8 @@
 							  'background-size':'cover',
 							  'background-repeat':'no-repeat'
 	});
-	
-function SubmitMemberModify(formRole){
-	var form = $('form[role="'+formRole+'"]');
-	form.submit();
-}
-function Rollback() {
-	history.go(-1);
-}		
 </script>
-
+</body>
 
 
 

@@ -2,9 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 
-<%@ include file="/WEB-INF/views/include/open_header.jsp" %>
+<head>
+	<title>회원 등록</title>
+</head>
 
-
+<body>
 	<!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
@@ -147,11 +149,8 @@
 </form>
 
 
-<%@ include file="/WEB-INF/views/include/open_footer.jsp" %>
-
 <%@ include file="picture_js.jsp" %>
-
-<%@ include file="regist_js.jsp" %>
+</body>
 
 
 

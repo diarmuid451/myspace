@@ -47,8 +47,7 @@ public class MemberModifyServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "member/modify_success";
 		
-		String id = request.getParameter("id");
-		System.out.println(id);
+		String id = request.getParameter("id");	
 		String pwd = request.getParameter("pwd");
 		String authority = request.getParameter("authority");
 		String email = request.getParameter("email");

@@ -4,8 +4,11 @@
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="/WEB-INF/views/include/header.jsp" %>
-						
+
+<head>
+	<title>회원 목록</title>
+</head>
+<body>			
 	<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
 		  <section class="content-header">
@@ -99,6 +102,4 @@
         </div> <!-- card  -->
       </section>	
     </div>
-
-
-<%@ include file="/WEB-INF/views/include/footer.jsp" %>
+</body>

@@ -3,6 +3,13 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 
 <script type="text/javascript">
-	alert("로그인이 필요한 항목입니다. \n로그인 화면으로 이동합니다.");
-	location.href="/commons/login";
+	
+	if(window.opener) {
+		alert("세션이 만료되었습니다.\n다시 로그인하시기 바랍니다.");
+		window.close();
+		window.opener.location.href = "<%=request.getContextPath()%>/commons/login";
+	} else {
+		location.href="<%=request.getContextPath()%>/commons/login";
+	}
+	
 </script>

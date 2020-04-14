@@ -12,3 +12,30 @@ function CloseWindow() {
 	window.opener.location.reload(true);
 	window.close();
 }
+
+//===============================================
+
+//form submit
+function SubmitMemberRegist(formRole){
+	var uploadCheck = $("input[name='checkUpload']").val();
+	if(!(uploadCheck>0)) {
+		alert("사진 업로드는 필수 입니다.");
+		//$("input[name='pictureFile']").click();
+		return;
+	}
+	var form = $('form[role="'+formRole+'"]');
+	form.submit();
+}
+
+
+//------------------------------------------
+
+function SubmitMemberModify(formRole){
+	var form = $('form[role="'+formRole+'"]');
+	form.submit();
+}
+// cancel
+function Rollback() {
+	history.go(-1);
+}		
+
