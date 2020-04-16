@@ -22,7 +22,7 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 <style>
 body.login-page{
-	background-image:url('<%=request.getContextPath()%>/resources/images/intro.jpg');
+	background-image:url('<%=request.getContextPath()%>/resources/images/intro2.jpg');
 	background-position:center;
 	background-size:cover;
 	background-repeat:no-repeat;
