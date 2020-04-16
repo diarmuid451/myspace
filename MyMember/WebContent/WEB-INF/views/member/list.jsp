@@ -102,4 +102,13 @@
         </div> <!-- card  -->
       </section>	
     </div>
+    
+ 
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("table tr:even").css("background-color", "#e2e2e2");
+        $("table tr:odd").css("background-color", "#FFFFFF");
+    });
+</script>
+    
 </body>
