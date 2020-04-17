@@ -53,9 +53,7 @@ public class MemberModifyServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String picture = request.getParameter("picture");
 		String name = request.getParameter("name");
-		String phone = request.getParameter("phone");
-		
-		phone = phone.replace("-", "");
+		String[] phone = request.getParameterValues("phone");
 		
 		MemberModifyRequest memberMod = new MemberModifyRequest(id,pwd,authority,email,phone,picture,name);
 		

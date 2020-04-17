@@ -105,17 +105,11 @@
 							<label for="phone" class="col-sm-3 control-label">전화번호</label>
 							<div class="col-sm-9">	
 								<div class="input-group-sm">
-									<select style="width:75px;" name="phone" id="phone" class="form-control float-left">
-										<option value="">-선택-</option>
-										<option value="010">010</option>
-										<option value="011">011</option>
-										<option value="017">017</option>
-										<option value="018">018</option>
-									</select>							
+									<input style="width:68px;" name="phone" type="text" class="form-control float-left" value="010"/>					
 									<label class="float-left" style="padding: 0; text-align: center;">&nbsp;-&nbsp;</label>										
-									<input style="width:68px;" name="phone" type="text" class="form-control float-left" />
+									<input style="width:68px;" name="phone" type="text" class="form-control float-left" maxlength="4"/>
 									<label class="float-left" style="padding: 0; text-align: center;">&nbsp;-</label>
-									<input style="width:68px;" name="phone" type="text" class="form-control float-right" />						
+									<input style="width:68px;" name="phone" type="text" class="form-control float-right" maxlength="4"/>						
 								</div>
 							</div>
 						</div>

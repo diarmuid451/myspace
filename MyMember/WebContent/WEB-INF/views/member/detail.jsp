@@ -68,8 +68,13 @@
 	                </div>
 	                <div class="form-group row">
 	                  <label for="inputPassword3" class="col-sm-3 control-label text-right">전화번호</label>
-	                  <div class="col-sm-9">   
-	                  	<input name="phone" type="text" class="form-control"  value="${member.phone.substring(0,3) }-${member.phone.substring(3,7)}-${member.phone.substring(7) }">	                
+	                  <div class="col-sm-9">
+									<input style="width:68px;" name="phone" type="text" class="form-control float-left" value="${member.phone.substring(0,3) }"/>					
+									<label class="float-left" style="padding: 0; text-align: center;">&nbsp;-&nbsp;</label>										
+									<input style="width:68px;" name="phone" type="text" class="form-control float-left" maxlength="4" value="${member.phone.substring(3,7)}" />
+									<label class="float-left" style="padding: 0; text-align: center;">&nbsp;-</label>
+									<input style="width:68px;" name="phone" type="text" class="form-control float-left" maxlength="4" value="${member.phone.substring(7)}"/>
+	                  	<%-- <input name="phone" type="text" class="form-control"  value="${member.phone.substring(0,3) }-${member.phone.substring(3,7)}-${member.phone.substring(7) }">	    --%>             
 	                  </div>                  
 	                </div>               
 	              </div>	 <!-- card body -->
@@ -112,6 +117,9 @@
 <%-- <%@ include file="/WEB-INF/views/include/open_footer.jsp" %> --%>
 
 <script type="text/javascript">
+
+	$('input').prop('readonly', true);
+
 	var imageURL = "picture/get?picture=${member.picture}";
 	$("div#pictureView").css({
 		'background-image':"url("+imageURL+")",
