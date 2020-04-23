@@ -30,7 +30,7 @@
 		</if>		
 	</sql>
 	
-	<select id="selectSearchMemberList" resultType="member">
+	<select id="selectSearchMemberList" parameterType="com.jsp.request.SearchCriteria" resultType="member">
 		select
 		* 
 		from member
@@ -39,7 +39,7 @@
 		order by regDate desc
 	</select>
 	
-	<select id="selectSearchMemberListCount" resultType="int">
+	<select id="selectSearchMemberListCount" parameterType="com.jsp.request.SearchCriteria" resultType="int">
 		select
 		count(*) 
 		from member
@@ -48,16 +48,18 @@
 		order by regDate desc
 	</select>
 	
-	<insert id="insertMember" parameterType="member">
+	
+	<update id="insertMember" parameterType="member">
 		insert into member
 		(id, pwd, name, picture, authority, phone, email)
 		values (#{id}, #{pwd}, #{name},#{picture}, #{authority}, #{phone}, #{email})
-	</insert>
+	</update>
 	
 	<update id="updateMember" parameterType="member">
 		update member 
 		set
-		pwd = #{pwd}, email = #{email}, phone = #{phone}, picture = #{picture}
+		pwd = #{pwd}, email = #{email}, phone = #{phone}, picture = #{picture},
+		name = #{name}
 		
 		<if test="authority != null">
 			, authority = #{authority}
@@ -65,10 +67,10 @@
 		where id = #{id}
 	</update>
 	
-	<delete id="deleteMember" parameterType="str">
+	<update id="deleteMember" parameterType="str">
 		delete from member
 		where id = #{id} 
-	</delete>
+	</update>
 	
 	<update id="disabledMember">
 		update member
@@ -81,5 +83,6 @@
 		set enabled=1
 		where id = #{id}
 	</update>
+	
 	
 </mapper>

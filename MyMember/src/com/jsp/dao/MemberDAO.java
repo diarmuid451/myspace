@@ -11,11 +11,12 @@ public interface MemberDAO {
 	//회원 리스트
 	List<MemberVO> selectMemberList() throws SQLException;
 	List<MemberVO> selectMemberList(SearchCriteria cri) throws SQLException;
+	
 	//전체 회원 리스트 개수
 	int selectMemberListCount() throws SQLException;
 	
 	//검색 결과 전체 리스트 개수
-		int selectMemberListCount(SearchCriteria cri) throws SQLException;
+	int selectMemberListCount(SearchCriteria cri) throws SQLException;
 	
 	//회원 정보
 	MemberVO selectMemberById(String id) throws SQLException;

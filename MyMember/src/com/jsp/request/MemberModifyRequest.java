@@ -10,7 +10,7 @@ public class MemberModifyRequest {
 	private String pwd;
 	private String authority;
 	private String email;
-	private String[] phone;
+	private String phone;
 	private String picture;
 	private String name;
 	
@@ -18,7 +18,7 @@ public class MemberModifyRequest {
 
 	public MemberModifyRequest() {}
 	
-	public MemberModifyRequest(String id, String pwd, String authority, String email, String[] phone, String picture,
+	public MemberModifyRequest(String id, String pwd, String authority, String email, String phone, String picture,
 			String name) {
 		super();
 		this.id = id;
@@ -33,7 +33,7 @@ public class MemberModifyRequest {
 	@Override
 	public String toString() {
 		return "MemberModifyRequest [id=" + id + ", pwd=" + pwd + ", authority=" + authority + ", email=" + email
-				+ ", phone=" + Arrays.toString(phone) + ", picture=" + picture + ", name=" + name + "]";
+				+ ", phone=" + phone + ", picture=" + picture + ", name=" + name + "]";
 	}
 	
 	public String getId() {
@@ -68,11 +68,11 @@ public class MemberModifyRequest {
 		this.email = email;
 	}
 
-	public String[] getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(String[] phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
@@ -99,7 +99,7 @@ public class MemberModifyRequest {
 		member.setAuthority(authority);
 		member.setEmail(email);
 		member.setPicture(picture);
-		member.setPhone(phone[0]+phone[1]+phone[2]);
+		member.setPhone(phone);
 		member.setName(name);
 		
 		return member;

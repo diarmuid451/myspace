@@ -4,7 +4,7 @@
 
 <script>
 	alert("${id} 회원 수정에 성공했습니다.");
-	location.href="detail?id=${id}";
+	location.href="detail.do?id=${id}";
 	window.opener.location.href.reload(true);
 </script>
 

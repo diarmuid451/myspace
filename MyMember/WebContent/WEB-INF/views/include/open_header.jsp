@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title><decorator:title default="회원 정보" /></title>
+  <title><decorator:title default="에누마에리시" /></title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/bootstrap/plugins/fontawesome-free/css/all.min.css">

@@ -6,9 +6,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <head>
-	<title>회원 목록</title>
+	<title>회원리스트</title>
 </head>
-<body>			
+<body>
 	<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
 		  <section class="content-header">
@@ -37,8 +37,8 @@
     	  <div class="card">    
     	  	<div class="card-header with-border">
     	  		<c:if test="${loginUser.authority eq 'ROLE_ADMIN' }" >
-    	  			<button type="button" class="btn btn-block bg-gradient-secondary" style="width:170px" 
-    	  			onclick="OpenWindow('regist','회원등록',800,600);" >회원등록</button>
+    	  			<button type="button" class="btn btn-secondary" 
+    	  			onclick="OpenWindow('registForm.do','회원등록',800,600);" >회원등록</button>
     	  		</c:if>
     	  		<div id="keyword" class="card-tools" style="width:350px;">
 				  <div class="input-group row">		
@@ -76,19 +76,20 @@
 	             		<%
 	             		List<MemberVO> memberList = (List<MemberVO>)request.getAttribute("memberList");
 	             		
-	             		 %> 	             	
+	             		 %> 
+	             	
 	             		<c:if test="${!empty memberList }">
-	             			<c:forEach var="member" items="${memberList }">	             	             	
+	             			<c:forEach var="member" items="${memberList }">          		
 	    		        	<tr>
-	             				<td><a href="javascript:OpenWindow('detail?id=${member.id }','회원상세보기','600','500');" >${member.id }</a></td>
+	             				<td><a href="javascript:OpenWindow('detail.do?id=${member.id }','회원상세보기','800','600')">${member.id }</a></td>
 	             				<td>${member.name }</td>
 	             				<td>${member.pwd }</td>
 	             				<td>${member.email }</td>
 	             				<td>${member.phone }</td>
 	            			 </tr>
 	            			</c:forEach>
-	            		</c:if> 	
-						<c:if test="${empty memberList }">
+	            		</c:if> 
+	             		<c:if test="${empty memberList }">
 	    		      	  <tr>
 	             			<td colspan = "5">해당 사항 없음</td>
 	            		 </tr>
@@ -98,18 +99,12 @@
            	</div>            
        	  </div>   
 		  <div class="card-footer">
-		  <%@ include file="/WEB-INF/views/pagination/pagination.jsp" %>
+		  	<%@ include file="/WEB-INF/views/pagination/pagination.jsp" %>
 		  </div> <!-- card-footer -->
         </div> <!-- card  -->
       </section>	
     </div>
     
- 
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("table tr:even").css("background-color", "#e2e2e2");
-        $("table tr:odd").css("background-color", "#FFFFFF");
-    });
-</script>
-    
+<%-- <%@ include file="/WEB-INF/views/include/footer.jsp" %> --%>
+
 </body>

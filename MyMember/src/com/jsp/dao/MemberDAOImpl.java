@@ -13,7 +13,7 @@ import com.jsp.request.SearchCriteria;
 
 public class MemberDAOImpl implements MemberDAO {
 	
-/*	private static MemberDAOImpl instance = new MemberDAOImpl();
+	/*private static MemberDAOImpl instance = new MemberDAOImpl();
 	private MemberDAOImpl() {}
 	public static MemberDAOImpl getInstance() {
 		return instance;
@@ -27,7 +27,7 @@ public class MemberDAOImpl implements MemberDAO {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	// = OracleMyBatisSqlSessionFactoryBuilder.getSqlSessionFactory();
+//	= OracleMyBatisSqlSessionFactoryBuilder.getSqlSessionFactory();
 	
 	
 	@Override
@@ -104,6 +104,7 @@ public class MemberDAOImpl implements MemberDAO {
 		
 		memberList = session.selectList("Member-Mapper.selectSearchMemberList",cri,rowBounds);
 		session.close();
+		
 			return memberList;
 	}
 

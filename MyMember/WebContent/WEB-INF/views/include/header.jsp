@@ -23,7 +23,7 @@
   <!-- jQuery -->
   <script src="<%=request.getContextPath()%>/resources/bootstrap/plugins/jquery/jquery.min.js"></script>
 
-
+<decorator:head />
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -36,13 +36,13 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<%=request.getContextPath() %>/member/list" class="nav-link">회원관리</a>
+        <a href="<%=request.getContextPath() %>/member/list.do" class="nav-link">회원관리</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<%=request.getContextPath() %>/board/list" class="nav-link">자유게시판</a>
+        <a href="<%=request.getContextPath() %>/board/list.do" class="nav-link">자유게시판</a>
       </li>
        <li class="nav-item d-none d-sm-inline-block">
-        <a href="<%=request.getContextPath() %>/pds/list" class="nav-link">자료실</a>
+        <a href="<%=request.getContextPath() %>/pds/list.do" class="nav-link">자료실</a>
       </li>
     </ul>
 
@@ -156,10 +156,8 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="<%=request.getContextPath()%>/resources/images/header-logo.jpg" alt="ddit-logo" 
-           style="opacity: .8">
-     
+    <a href="http://localhost/member/list.do" class="brand-link">
+      <img src="<%=request.getContextPath()%>/resources/images/header-logo.jpg" alt="AdminLTE Logo" class="brand-image  elevation-3">
     </a>
 
     <!-- Sidebar -->
@@ -167,14 +165,14 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<%=request.getContextPath()%>/member/picture/get?picture=${loginUser.picture}" 
+          <img src="<%=request.getContextPath()%>/member/picture/get.do?picture=${loginUser.picture}" 
           onerror="this.src='<%=request.getContextPath()%> /resources/bootstrap/dist/img/avatar.png'" class="img-circle elevation-2" alt="User Image">
-       </div>
+        </div>
         <div class="info">
           <div class="row">
           	<a class="col-md-8" href="">${loginUser.id }</a>
           	<button class="btn btn-xs btn-danger col-xs-3 " type="button" 
-          		onclick="location.href='<%=request.getContextPath() %>/commons/logout';" >Logout</button>
+          		onclick="location.href='<%=request.getContextPath() %>/commons/logout.do';" >Logout</button>
           </div>
           <a href="tel:${loginUser.phone }">tel : ${loginUser.phone }</a><br/>
           <a href="mailto:${loginUser.email }">email : ${loginUser.email }</a>			          
@@ -186,19 +184,19 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview"
         	data-accordion="false">
         	<li class="nav-item" >
-                <a href="#" class="nav-link">
+                <a href="<%=request.getContextPath() %>/member/list.do" class="nav-link">
                   <i class="fas fa-user-friends nav-icon"></i>
                   <p>회원관리</p>
                 </a>
 	        </li>
 	        <li class="nav-item" >
-                <a href="#" class="nav-link">
+                <a href="<%=request.getContextPath() %>/board/list.do" class="nav-link">
                   <i class="fas fa-comments nav-icon"></i>
                   <p>자유게시판</p>
                 </a>
 	        </li>
 	        <li class="nav-item" >
-                <a href="#" class="nav-link">
+                <a href="<%=request.getContextPath() %>/pds/list.do" class="nav-link">
                   <i class="fas fa-archive nav-icon"></i>
                   <p>자료실</p>
                 </a>

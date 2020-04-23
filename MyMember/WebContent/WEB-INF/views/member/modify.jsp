@@ -35,7 +35,7 @@
   
     <section class="content register-page" style="height: 586.391px;">       
 		<div class="register-box" style="min-width:450px;">
-	    	<form role="form" class="form-horizontal" action="modify" method="post">
+	    	<form role="form" class="form-horizontal" action="modify.do" method="post">
 			<input type="hidden" name="picture" value="${member.picture }"/>
 	        	<div class="register-card-body" >
 	        		<div class="row">		
@@ -80,14 +80,9 @@
 	                </div>
 	                <div class="form-group row">
 	                  <label for="inputPassword3" class="col-sm-3 control-label text-right">전화번호</label>
-	                  <div class="col-sm-9">
-									<input style="width:68px;" name="phone" type="text" class="form-control float-left" value="${member.phone.substring(0,3) }"/>					
-									<label class="float-left" style="padding: 0; text-align: center;">&nbsp;-&nbsp;</label>										
-									<input style="width:68px;" name="phone" type="text" class="form-control float-left" maxlength="4" value="${member.phone.substring(3,7)}" />
-									<label class="float-left" style="padding: 0; text-align: center;">&nbsp;-</label>
-									<input style="width:68px;" name="phone" type="text" class="form-control float-left" maxlength="4" value="${member.phone.substring(7)}"/>
-	                  	<%-- <input name="phone" type="text" class="form-control"  value="${member.phone.substring(0,3) }-${member.phone.substring(3,7)}-${member.phone.substring(7) }">	    --%>             
-	                  </div>               
+	                  <div class="col-sm-9">   
+	                  	<input name="phone" type="text" class="form-control" value="${member.phone.substring(0,3) }-${member.phone.substring(3,7)}-${member.phone.substring(7) }">	                
+	                  </div>                  
 	                </div>               
 	              </div> <!-- card body -->
 	              <div class="card-footer">
@@ -111,23 +106,14 @@
 	<input id="inputFile" name="pictureFile" type="file" class="form-control" 
 		   style="display:none;">
 	<input type="hidden" id="oldFile" name="oldPicture" value="${member.picture }" />
-	<input type="hidden" name="checkUpload" value="${empty member.picture ? '0':'1'}
-			<%-- <c:choose>
-				<c:when test = "${empty member.picture }">
-					0
-				</c:when>
-				<c:otherwise>
-						1
-				</c:otherwise>
-			</c:choose> --%>
-			" />	
+	<input type="hidden" name="checkUpload" value="${empty member.picture ? '0':'1'}" />	
 </form>
 
 
 <%@ include file="picture_js.jsp" %>
 
 <script>
-	var imageURL="picture/get?picture=${member.picture}";
+	var imageURL="picture/get.do?picture=${member.picture}";
 	$('div#pictureView').css({'background-image':'url('+imageURL+')',
 							  'background-position':'center',
 							  'background-size':'cover',
@@ -143,4 +129,8 @@ function SubmitMemberModify(formRole){
 
 </body>
 
+
+
+
+  
   

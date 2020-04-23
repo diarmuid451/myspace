@@ -3,9 +3,11 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <head>
 	<title>회원 정보</title>
 </head>
+
 <body>
   <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
@@ -68,13 +70,8 @@
 	                </div>
 	                <div class="form-group row">
 	                  <label for="inputPassword3" class="col-sm-3 control-label text-right">전화번호</label>
-	                  <div class="col-sm-9">
-									<input style="width:68px;" name="phone" type="text" class="form-control float-left" value="${member.phone.substring(0,3) }"/>					
-									<label class="float-left" style="padding: 0; text-align: center;">&nbsp;-&nbsp;</label>										
-									<input style="width:68px;" name="phone" type="text" class="form-control float-left" maxlength="4" value="${member.phone.substring(3,7)}" />
-									<label class="float-left" style="padding: 0; text-align: center;">&nbsp;-</label>
-									<input style="width:68px;" name="phone" type="text" class="form-control float-left" maxlength="4" value="${member.phone.substring(7)}"/>
-	                  	<%-- <input name="phone" type="text" class="form-control"  value="${member.phone.substring(0,3) }-${member.phone.substring(3,7)}-${member.phone.substring(7) }">	    --%>             
+	                  <div class="col-sm-9">   
+	                  	<input name="phone" type="text" class="form-control"  value="${member.phone.substring(0,3) }-${member.phone.substring(3,7)}-${member.phone.substring(7) }">	                
 	                  </div>                  
 	                </div>               
 	              </div>	 <!-- card body -->
@@ -117,10 +114,7 @@
 <%-- <%@ include file="/WEB-INF/views/include/open_footer.jsp" %> --%>
 
 <script type="text/javascript">
-
-	$('input').prop('readonly', true);
-
-	var imageURL = "picture/get?picture=${member.picture}";
+	var imageURL = "picture/get.do?picture=${member.picture}";
 	$("div#pictureView").css({
 		'background-image':"url("+imageURL+")",
 		'background-position': "center",
@@ -130,24 +124,24 @@
 	
 	
 	$("#modifyBtn").on("click", function(e){
-		location.href="modify?id=${member.id}";
+		location.href="modifyForm.do?id=${member.id}";
 	});
 	
 	$("#disabledBtn").on("click", function(e){
-		location.href="disabled?id=${member.id}";
+		location.href="disabled.do?id=${member.id}";
 	});
 	$("#enabledBtn").on("click", function(e){
-		location.href="enabled?id=${member.id}";
+		location.href="enabled.do?id=${member.id}";
 	});
 	$("#deleteBtn").on("click", function(e){
 		var pwd = prompt("암호를 입력하세요");
 		
 		$.ajax({
-			url:"checkPassword?pwd="+pwd,
+			url:"checkPassword.do?pwd="+pwd,
 			type:"get",
 			success : function(data) {
 				if(data =="SUCCESS") {
-					location.href="remove?id=${member.id}";
+					location.href="remove.do?id=${member.id}";
 				} else {
 					alert("비밀번호가 다릅니다.");
 				}

@@ -8,7 +8,7 @@
 <title></title>
 </head>
 <body>
-	<img src="<%=request.getContextPath()%>/resources/images/404.jpg" alt="ddit-logo"><br>
+	<img src="<%=request.getContextPath()%>/resources/images/404.jpg"><br>
 	<h3>잘못된 요청입니다.</h3>
 	<h3>관리자에게 문의바랍니다.</h3>
 	<a href="javascript:history.go(-1);">뒤로가기</a>

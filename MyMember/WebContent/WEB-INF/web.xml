@@ -2,14 +2,46 @@
 
 <web-app>
 	<context-param>
-  	<param-name>memberDAO</param-name>
-  	<param-value>com.jsp.dao.MemberDAOImpl</param-value>
+    <param-name>memberDAO</param-name>
+    <param-value>com.jsp.dao.MemberDAOImpl</param-value>
+  </context-param>
+  <context-param>
+    <param-name>memberService</param-name>
+    <param-value>com.jsp.service.MemberServiceImpl</param-value>
   </context-param>
   
   <context-param>
-  	<param-name>sqlSessionFactory</param-name>
-  	<param-value>com.jsp.mybatis.OracleMyBatisSqlSessionFactory</param-value>
+    <param-name>boardDAO</param-name>
+    <param-value>com.jsp.dao.BoardDAOImpl</param-value>
   </context-param>
+  <context-param>
+    <param-name>boardService</param-name>
+    <param-value>com.jsp.service.BoardServiceImpl</param-value>
+  </context-param>
+  
+  <context-param>
+    <param-name>replyDAO</param-name>
+    <param-value>com.jsp.dao.ReplyDAOImpl</param-value>
+  </context-param>
+  <context-param>
+    <param-name>replyService</param-name>
+    <param-value>com.jsp.service.ReplyServiceImpl</param-value>
+  </context-param>
+  
+  <context-param>
+    <param-name>sessionFactory</param-name>
+    <param-value>com.jsp.mybatis.OracleMyBatisSqlSessionFactory</param-value>
+  </context-param>
+  
+  <servlet>
+  	<servlet-name>FrontServlet</servlet-name>
+  	<servlet-class>com.jsp.dispatcher.FrontServlet</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FrontServlet</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
   
   <listener>
     <listener-class>com.jsp.listener.InitListener</listener-class>

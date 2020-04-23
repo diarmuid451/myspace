@@ -57,7 +57,7 @@ public class SearchCriteria {
 
 
 	public int getPageStartRowNum() { // 각 페이지마다 시작하는 행번호
-		return (this.page-1);
+		return (this.page-1)*perPageNum;
 	}
 
 }

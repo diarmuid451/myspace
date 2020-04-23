@@ -15,11 +15,6 @@ import com.jsp.request.SearchCriteria;
 
 public class MemberServiceImpl implements MemberService {
 
-	private static MemberServiceImpl instance = new MemberServiceImpl();
-	private MemberServiceImpl() {}
-	public static MemberServiceImpl getInstance() {
-		return instance;
-	}
 	
 	private MemberDAO memberDAO; 	// = MemberDAOImpl.getInstance();
 	public void setMemberDAO(MemberDAO memberDAO) {
@@ -83,5 +78,6 @@ public class MemberServiceImpl implements MemberService {
 		dataMap.put("pageMaker", pageMaker);
 		return dataMap;
 	}
-
+	
+	
 }

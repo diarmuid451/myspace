@@ -22,7 +22,7 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 <style>
 body.login-page{
-	background-image:url('<%=request.getContextPath()%>/resources/images/intro2.jpg');
+	background-image:url('<%=request.getContextPath()%>/resources/images/intro.jpg');
 	background-position:center;
 	background-size:cover;
 	background-repeat:no-repeat;
@@ -33,14 +33,14 @@ body.login-page{
 <body class="hold-transition login-page">
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="#"><b>로그인 페이지</b></a>
+			<a href="#"><b>관리자 로그인</b></a>
 		</div>
 		<!-- /.login-logo -->
 		<div class="card">
 		 <div class="card-body login-card-body">
-			<p class="login-box-msg">아이디와 비밀번호를 입력해주세요.</p>
+			<p class="login-box-msg">Sign in to start your session</p>
 
-			<form action="<%=request.getContextPath() %>/commons/login"	method="post">
+			<form action="<%=request.getContextPath() %>/commons/login.do"	method="post">
 				<div class="form-group has-feedback">
 					<input type="text" class="form-control" name="id" placeholder="아이디를 입력하세요." value="${param.id }">
 					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -52,13 +52,13 @@ body.login-page{
 				<div class="row">
 					<div class="col-sm-8">
 						<div class="checkbox icheck">
-							<label> <input type="checkbox"> 아이디 저장
+							<label> <input type="checkbox"> Remember Me
 							</label>
 						</div>
 					</div>
 					<!-- /.col -->
 					<div class="col-sm-4">
-						<button type="submit" class="btn btn-block btn-outline-primary">로그인</button>
+						<button type="submit" class="btn btn-primary btn-block btn-flat">로그인</button>
 					</div>
 					<!-- /.col -->
 				</div>

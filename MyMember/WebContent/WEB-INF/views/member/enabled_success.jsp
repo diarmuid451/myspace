@@ -4,6 +4,6 @@
 
 <script>
 	alert("${id} 회원 활성화에 성공했습니다.");
-	location.href="detail?id=${id}";
+	location.href="detail.do?id=${id}";
 </script>
 
