@@ -165,6 +165,30 @@ $("#replyModBtn").on("click", function(event){
 });
 
 $("#replyDelBtn").on("click", function(event){
-	alert("delete action btn");
+	
+	var data = {
+			"bno":"${board.bno}",
+			"rno":$(".modal-title").text()	
+		}
+		
+		$.ajax({
+			url:"<%=request.getContextPath()%>/replies/remove.do",
+			type:"post",
+			data:JSON.stringify(data),
+			contentType:"application/json",		//보내는 data 형식 지정
+			dataType:"text",					//받는 data형식 지정
+			success:function(data){
+				var result=data.split(',');
+				if(result[0]=="SUCCESS") {
+					alert("댓글이 삭제되었습니다.");
+					getPage("<%=request.getContextPath()%>/replies/list.do?bno=${board.bno}&page="+result[1]);
+				} else {
+					alert("댓글 삭제가 취소되었습니다.");
+				}
+			},
+			complete:function() {
+				$("#modifyModal").modal("hide");
+			}
+		});
 });
 </script>
