@@ -13,14 +13,6 @@ import com.jsp.request.SearchCriteria;
 
 public class MemberDAOImpl implements MemberDAO {
 	
-	/*private static MemberDAOImpl instance = new MemberDAOImpl();
-	private MemberDAOImpl() {}
-	public static MemberDAOImpl getInstance() {
-		return instance;
-	}*/
-	
-	
-	
 	//SqlSessionFactory
 	private SqlSessionFactory sessionFactory;
 	public void setSessionFactory(SqlSessionFactory sessionFactory) {

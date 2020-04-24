@@ -112,9 +112,10 @@ $("#replyAddBtn").on("click", function(e){
 				alert("댓글이 등록되었습니다.");
 				getPage("<%=request.getContextPath()%>/replies/list.do?bno=${board.bno}&page="+result[1]);
 				$("#newReplyText").val("");
-			} else {
-				alert("댓글 등록이 취소되었습니다.");
 			}
+		},
+		error:function(error){
+			alert("댓글 등록에 실패했습니다.");
 		}
 	});
 	
@@ -153,9 +154,10 @@ $("#replyModBtn").on("click", function(event){
 			if(result=="SUCCESS") {
 				alert("댓글이 수정되었습니다.");
 				getPage("<%=request.getContextPath()%>/replies/list.do?bno=${board.bno}&page="+replyPage);
-			} else {
-				alert("댓글 수정에 실패했습니다.");
-			}
+			} 
+		},
+		error:function(error){
+			alert("댓글 수정에 실패했습니다.");
 		},
 		complete:function() {
 			$("#modifyModal").modal("hide");
@@ -166,29 +168,33 @@ $("#replyModBtn").on("click", function(event){
 
 $("#replyDelBtn").on("click", function(event){
 	
-	var data = {
-			"bno":"${board.bno}",
-			"rno":$(".modal-title").text()	
+	var rno = $(".modal-title").text();
+	
+	var sendData = {
+		rno: rno,
+		bno:"${board.bno}",
+		page:replyPage
+	};
+	
+	
+	$.ajax({
+		url:"<%=request.getContextPath()%>/replies/remove.do",
+		type:"post",
+		data:JSON.stringify(sendData),
+		success:function(data){
+			var result=data.split(',');
+			if(result[0]=="SUCCESS") {
+				alert("댓글이 삭제되었습니다.");
+				getPage("<%=request.getContextPath()%>/replies/list.do?bno=${board.bno}&page="+result[1]);
+			} 
+		},
+		error:function(error){
+			alert("댓글 삭제에 실패했습니다.");
+		},
+		complete:function() {
+			$("#modifyModal").modal("hide");
 		}
-		
-		$.ajax({
-			url:"<%=request.getContextPath()%>/replies/remove.do",
-			type:"post",
-			data:JSON.stringify(data),
-			contentType:"application/json",		//보내는 data 형식 지정
-			dataType:"text",					//받는 data형식 지정
-			success:function(data){
-				var result=data.split(',');
-				if(result[0]=="SUCCESS") {
-					alert("댓글이 삭제되었습니다.");
-					getPage("<%=request.getContextPath()%>/replies/list.do?bno=${board.bno}&page="+result[1]);
-				} else {
-					alert("댓글 삭제가 취소되었습니다.");
-				}
-			},
-			complete:function() {
-				$("#modifyModal").modal("hide");
-			}
-		});
+	});
+	
 });
 </script>

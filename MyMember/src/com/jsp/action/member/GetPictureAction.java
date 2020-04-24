@@ -22,7 +22,7 @@ import com.jsp.utils.GetUploadPath;
 
 public class GetPictureAction implements Action {
 	
-	private MemberService memberService;	// = MemberServiceImpl.getInstance();
+	private MemberService memberService;	
 	public void setMemberService(MemberService memberService) {
 		this.memberService = memberService;
 	}

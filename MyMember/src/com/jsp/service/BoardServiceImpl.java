@@ -13,7 +13,7 @@ import com.jsp.request.SearchCriteria;
 
 public class BoardServiceImpl implements BoardService {
 	
-	private BoardDAO boardDAO; 	// = MemberDAOImpl.getInstance();
+	private BoardDAO boardDAO;
 	public void setBoardDAO(BoardDAO boardDAO) {
 		this.boardDAO = boardDAO;
 	}

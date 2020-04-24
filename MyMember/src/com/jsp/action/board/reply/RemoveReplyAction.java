@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jsp.action.Action;
 import com.jsp.dto.ReplyVO;
+import com.jsp.request.DeleteReplyRequest;
 import com.jsp.request.PageMaker;
 import com.jsp.request.SearchCriteria;
 import com.jsp.service.ReplyService;
@@ -31,21 +32,26 @@ public class RemoveReplyAction implements Action {
 		
 		ObjectMapper mapper = new ObjectMapper();
 		
-		ReplyVO replyVO = mapper.readValue(request.getReader(), ReplyVO.class);
+		DeleteReplyRequest replyReq = mapper.readValue(request.getReader(),DeleteReplyRequest.class); 
 		
-		
-		
+		response.setContentType("text/plain;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
 		try {
-			replyService.removeReply(replyVO.getRno());
+			replyService.removeReply(replyReq.getRno());
 			
 			SearchCriteria cri = new SearchCriteria();
-			Map<String , Object> dataMap = replyService.getReplyList(replyVO.getBno(), cri);
-			PageMaker pageMaker = (PageMaker)dataMap.get("pageMaker");
-			int realEndPage = pageMaker.getRealEndPage();
-			out.print("SUCCESS,"+realEndPage);
 			
+			Map<String, Object> dataMap = replyService.getReplyList(replyReq.getBno(), cri);
+			PageMaker pageMaker = (PageMaker) dataMap.get("pageMaker");
+			int page = replyReq.getPage();
+			int realEndPage = pageMaker.getRealEndPage();
+			if(page>realEndPage) {
+				page = realEndPage;
+			}
+			
+			
+			out.print("SUCCESS,"+page);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			out.print("FAIL,1");

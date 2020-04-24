@@ -20,7 +20,9 @@ import com.jsp.dto.MemberVO;
 
 
 public class MemberDisabledFilter implements Filter {
+	
 	private List<String> checkURLs=new ArrayList<String>(); 
+	private ViewResolver viewResolver;
   
 	public void destroy() {
 		
@@ -39,7 +41,7 @@ public class MemberDisabledFilter implements Filter {
 			for(String url : checkURLs) {
 				if(reqUrl.contains(url)) {
 					url = "commons/disableCheck";
-					ViewResolver.view(httpReq, httpResp, url);
+					viewResolver.view(httpReq, httpResp, url);
 					return;
 				} 
 			}
@@ -48,11 +50,23 @@ public class MemberDisabledFilter implements Filter {
 	}
 
 	public void init(FilterConfig fConfig) throws ServletException {
+		// checkURL
 		String paramValue=fConfig.getInitParameter("checkURL");
 		StringTokenizer st= new StringTokenizer(paramValue,",");
 		while(st.hasMoreTokens()) {
 			String urlKey = st.nextToken();
 			checkURLs.add(urlKey);
+		}
+		
+		// viewResolver
+		String viewResolverType = fConfig.getInitParameter("viewResolver");
+		try {
+			Class<?> cls = Class.forName(viewResolverType);
+			viewResolver = (ViewResolver) cls.newInstance();
+			System.out.println("[MemberDisabledFilter]"+viewResolverType+"가 준비되었습니다.");
+		} catch (Exception e) {			
+			e.printStackTrace();
+			System.out.println("[MemberDisabledFilter]"+viewResolverType+"가 준비되지 않았습니다.");
 		}
 	}
 }
