@@ -1,21 +1,17 @@
 package com.jsp.request;
 
 
-import com.jsp.dto.BoardVO;
+import com.jsp.dto.PdsVO;
 
-public class BoardRegistRequest {
+public class PdsRegistRequest {
 	
-	private int bno;
 	private String title;
 	private String writer;
 	private String content;
-	public int getBno() {
-		return bno;
-	}
-
-	public void setBno(int bno) {
-		this.bno = bno;
-	}
+	
+	
+	
+	
 
 	public String getTitle() {
 		return title;
@@ -41,12 +37,10 @@ public class BoardRegistRequest {
 		this.content = content;
 	}
 
-	
-	public BoardRegistRequest() {}
+	public PdsRegistRequest() {}
 
-	public BoardRegistRequest(int bno, String title, String writer, String content) {
+	public PdsRegistRequest(String title, String writer, String content) {
 		super();
-		this.bno = bno;
 		this.title = title;
 		this.writer = writer;
 		this.content = content;
@@ -54,16 +48,15 @@ public class BoardRegistRequest {
 
 	@Override
 	public String toString() {
-		return "BoardRegistRequest [bno=" + bno + ", title=" + title + ", writer=" + writer + ", content=" + content
+		return "BoardRegistRequest [title=" + title + ", writer=" + writer + ", content=" + content
 				+ "]";
 	}
 	
-	public BoardVO toBoardVO() {
-		BoardVO board = new BoardVO();
-		board.setBno(bno);
-		board.setTitle(title);
-		board.setWriter(writer);
-		board.setContent(content);
-		return board;
+	public PdsVO toPdsVO() {
+		PdsVO pds = new PdsVO();
+		pds.setTitle(title);
+		pds.setWriter(writer);
+		pds.setContent(content);
+		return pds;
 	}
 }
